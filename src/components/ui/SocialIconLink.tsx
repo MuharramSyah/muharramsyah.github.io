@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 
 type Props = {
   href: string;
-  label: string;
+  label: any;
   title: string;
 };
 

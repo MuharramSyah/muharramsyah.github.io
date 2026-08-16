@@ -8,6 +8,7 @@ import { SectionHeading } from "@/components/ui/SectionHeading";
 import { colors } from "@/config";
 import { projects } from "../data";
 import { useIsMobile } from "../hooks/useIsMobile";
+import { Chip } from "@heroui/react";
 import type { Project } from "../types";
 
 const FILTERS = [
@@ -155,19 +156,21 @@ export function Work() {
                   gap: 10,
                 }}
               >
-                <div style={{ display: "flex", gap: 10, flexWrap: "wrap" }}>
+                <div style={{ display: "flex", gap: 8, flexWrap: "wrap" }}>
                   {p.tags.map((tag) => (
-                    <span
+                    <Chip
                       key={tag}
-                      style={{
-                        fontSize: 12,
-                        fontWeight: 600,
-                        color: colors.maroon,
-                        letterSpacing: "0.01em",
+                      variant="solid"
+                      color="primary"
+                      radius="full"
+                      size="sm"
+                      classNames={{
+                        base: "border-none",
+                        content: "text-xs font-semibold tracking-wide",
                       }}
                     >
                       {tag}
-                    </span>
+                    </Chip>
                   ))}
                 </div>
                 <div

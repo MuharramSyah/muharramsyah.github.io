@@ -1,6 +1,9 @@
 "use client";
 
+import { AnimatePresence, motion } from "framer-motion";
 import { useState, type CSSProperties } from "react";
+import { Button } from "@heroui/react";
+import { ChevronLeft, ChevronRight, Bars, Xmark } from "@gravity-ui/icons";
 import { colors } from "@/config";
 import { SECTION_IDS, type SectionId } from "../types";
 import { useActiveSection } from "../hooks/useActiveSection";
@@ -16,10 +19,91 @@ export function SideNav() {
   const isMobile = useIsMobile();
   const activeSection = useActiveSection();
 
-  const navPadding = isMobile ? "18px 24px" : "20px 48px";
   const closeMenu = () => setMobileMenuOpen(false);
   const toggleMenu = () => setMobileMenuOpen((v) => !v);
   const toggleCollapsed = () => setCollapsed((v) => !v);
+
+  const label = (id: SectionId) => id.charAt(0).toUpperCase() + id.slice(1);
+
+  if (isMobile) {
+    return (
+      <>
+        <Button
+          onPress={toggleMenu}
+          aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
+          aria-expanded={mobileMenuOpen}
+          variant="bordered"
+          radius="full"
+          isIconOnly
+          style={{
+            position: "fixed",
+            top: 16,
+            right: 16,
+            zIndex: 65,
+            background: colors.paleRose,
+            color: colors.softBlack,
+            boxShadow: "0 4px 12px rgba(38,38,38,0.08)",
+          }}
+        >
+          {mobileMenuOpen ? <Xmark /> : <Bars />}
+        </Button>
+
+        <AnimatePresence>
+          {mobileMenuOpen && (
+            <motion.div
+              key="mobile-menu"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
+              style={{
+                position: "fixed",
+                inset: 0,
+                zIndex: 55,
+                background: colors.paleRose,
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+                justifyContent: "center",
+                gap: 24,
+                padding: 24,
+              }}
+            >
+              {SECTION_IDS.map((id, i) => {
+                const isActive = activeSection === id;
+                return (
+                  <motion.a
+                    key={id}
+                    href={`#${id}`}
+                    onClick={closeMenu}
+                    initial={{ opacity: 0, y: 12 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{
+                      duration: 0.35,
+                      delay: 0.08 + i * 0.06,
+                      ease: [0.16, 1, 0.3, 1],
+                    }}
+                    style={{
+                      fontSize: 32,
+                      fontWeight: isActive ? 700 : 500,
+                      color: isActive ? colors.maroon : colors.softBlack,
+                      textDecoration: "none",
+                      letterSpacing: "-0.01em",
+                    }}
+                  >
+                    {label(id)}
+                  </motion.a>
+                );
+              })}
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </>
+    );
+  }
+
+  const sidebarLeft = collapsed ? -NAV_WIDTH : 0;
+  const chevronLeft = collapsed ? 12 : NAV_WIDTH + 12;
 
   const navLink = (id: SectionId): CSSProperties => {
     const isActive = activeSection === id;
@@ -35,38 +119,8 @@ export function SideNav() {
     };
   };
 
-  const sidebarLeft = !isMobile && collapsed ? -NAV_WIDTH : 0;
-  const chevronLeft = !isMobile && collapsed ? 12 : NAV_WIDTH + 12;
-
   return (
     <>
-      {mobileMenuOpen && (
-        <div
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            gap: 0,
-            background: colors.paleRose,
-            borderBottom: "1px solid rgba(38,38,38,0.1)",
-          }}
-        >
-          {(["work", "about", "experience", "skills", "contact"] as const).map((id, i, arr) => (
-            <a
-              key={id}
-              href={`#${id}`}
-              onClick={closeMenu}
-              style={{
-                padding: "16px 24px",
-                borderBottom:
-                  i === arr.length - 1 ? undefined : "1px solid rgba(38,38,38,0.08)",
-              }}
-            >
-              {id.charAt(0).toUpperCase() + id.slice(1)}
-            </a>
-          ))}
-        </div>
-      )}
-
       <div
         style={{
           position: "fixed",
@@ -74,7 +128,7 @@ export function SideNav() {
           background: colors.paleRose,
           display: "grid",
           alignItems: "center",
-          padding: navPadding,
+          padding: "20px 48px",
           left: sidebarLeft,
           fontFamily: "-apple-system, 'Helvetica Neue', Helvetica, Arial, sans-serif",
           height: "100%",
@@ -101,58 +155,32 @@ export function SideNav() {
         >
           {SECTION_IDS.map((id) => (
             <a key={id} href={`#${id}`} className="hov-nav" style={navLink(id)}>
-              {id.charAt(0).toUpperCase() + id.slice(1)}
+              {label(id)}
             </a>
           ))}
         </div>
-        <button
-          onClick={toggleMenu}
-          style={{
-            display: isMobile ? "block" : "none",
-            background: "none",
-            border: "none",
-            fontSize: 14,
-            cursor: "pointer",
-            color: colors.softBlack,
-            padding: 8,
-          }}
-        >
-          {mobileMenuOpen ? "Close" : "Menu"}
-        </button>
       </div>
 
-      {!isMobile && (
-        <button
-          onClick={toggleCollapsed}
-          aria-label={collapsed ? "Show navigation" : "Hide navigation"}
-          style={{
-            position: "fixed",
-            zIndex: 51,
-            top: "50%",
-            left: chevronLeft,
-            transform: "translateY(-50%)",
-            width: 40,
-            height: 40,
-            borderWidth: "1px",
-              borderStyle: "solid",
-              borderColor: colors.maroon,
-            borderRadius: 100,
-            background: colors.paleRose,
-            color: colors.maroon,
-            fontSize: 24,
-            cursor: "pointer",
-            display: "inline-block",
-            alignItems: "center",
-            justifyContent: "center",
-            fontWeight: 400,
-            padding: 0,
-              paddingBottom: 5,
-            transition: "left 0.35s cubic-bezier(0.16,1,0.3,1)",
-          }}
-        >
-          {collapsed ? "›" : "‹"}
-        </button>
-      )}
+      <Button
+        onPress={toggleCollapsed}
+        aria-label={collapsed ? "Show navigation" : "Hide navigation"}
+        variant="bordered"
+        radius="full"
+        isIconOnly
+        style={{
+          position: "fixed",
+          zIndex: 51,
+          top: "50%",
+          left: chevronLeft,
+          fontSize: 24,
+          cursor: "pointer",
+          fontWeight: 400,
+          padding: 0,
+          transition: "left 0.35s cubic-bezier(0.16,1,0.3,1)",
+        }}
+      >
+        {collapsed ? <ChevronRight /> : <ChevronLeft />}
+      </Button>
     </>
   );
 }

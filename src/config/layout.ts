@@ -8,7 +8,7 @@ export const container = {
 };
 
 export const spacing = {
-  sectionPaddingX: (isMobile: boolean) => (isMobile ? "0 24px" : "0 32px"),
+  sectionPaddingX: (isMobile: boolean) => (isMobile ? "0 24px" : "0 0px"),
   sectionPaddingY: (isMobile: boolean) => (isMobile ? "56px" : "80px"),
   heroPaddingY: (isMobile: boolean) => (isMobile ? "56px" : "96px"),
   navPadding: (isMobile: boolean) => (isMobile ? "18px 24px" : "20px 48px"),

@@ -5,11 +5,12 @@ import { StaggerGroup, StaggerItem } from "@/libs/motion";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { SocialIconLink } from "@/components/ui/SocialIconLink";
 import { useIsMobile } from "../hooks/useIsMobile";
+import {At, LogoLinkedin, LogoGithub} from '@gravity-ui/icons';
 
 const socials = [
-  { href: "mailto:muharramsyah19@gmail.com", label: "@", title: "Email" },
-  { href: "https://linkedin.com/in/muharram-syah", label: "in", title: "LinkedIn" },
-  { href: "https://github.com/muharram-syah", label: "GH", title: "GitHub" },
+  { href: "mailto:muharramsyah19@gmail.com", label: <At/>, title: "Email" },
+  { href: "https://linkedin.com/in/muharram-syah", label: <LogoLinkedin/>, title: "LinkedIn" },
+  { href: "https://github.com/muharram-syah", label: <LogoGithub/>, title: "GitHub" },
 ];
 
 export function About() {

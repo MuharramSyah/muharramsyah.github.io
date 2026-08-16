@@ -35,11 +35,13 @@ export function Hero({ heroOpacity }: Props) {
       style={{
         padding: `${heroPaddingY} 0`,
         display: "flex",
-        alignItems: "center",
-        gap: 56,
+        alignItems: isMobile ? "flex-start" : "center",
+        justifyContent: isMobile ? "center" : "flex-start",
+        gap: isMobile ? 28 : 56,
         flexWrap: "wrap",
+        flexDirection: isMobile ? "column" : "row",
         position: "relative",
-        minHeight: 828,
+        minHeight: isMobile ? "auto" : 828,
         opacity: heroOpacity,
       }}
     >
@@ -137,11 +139,13 @@ export function Hero({ heroOpacity }: Props) {
       </div>
       <motion.div
         style={{
+          order: isMobile ? -1 : 0,
+          alignSelf: isMobile ? "center" : "auto",
           position: "relative",
-          width: 297,
-          aspectRatio: "4/5",
+          width: isMobile ? 140 : 297,
+          aspectRatio: isMobile ? "1 / 1" : "4 / 5",
           border: "1px solid rgba(38,38,38,0.15)",
-          borderRadius: 4,
+          borderRadius: isMobile ? "50%" : 12,
           overflow: "hidden",
           y: portraitY,
           willChange: "transform",
@@ -160,7 +164,7 @@ export function Hero({ heroOpacity }: Props) {
             src="/assets/images/portrait_photo.jpg"
             alt="Portrait of Muharram Syah"
             fill
-            sizes="497px"
+            sizes={isMobile ? "140px" : "297px"}
             priority
             style={{ objectFit: "cover", scale: 1.5 }}
           />
