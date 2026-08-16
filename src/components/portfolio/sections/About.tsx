@@ -10,7 +10,7 @@ import {At, LogoLinkedin, LogoGithub} from '@gravity-ui/icons';
 const socials = [
   { href: "mailto:muharramsyah19@gmail.com", label: <At/>, title: "Email" },
   { href: "https://linkedin.com/in/muharram-syah", label: <LogoLinkedin/>, title: "LinkedIn" },
-  { href: "https://github.com/muharram-syah", label: <LogoGithub/>, title: "GitHub" },
+  { href: "https://github.com/MuharramSyah", label: <LogoGithub/>, title: "GitHub" },
 ];
 
 export function About() {

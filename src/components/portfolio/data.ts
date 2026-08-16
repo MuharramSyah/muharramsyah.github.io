@@ -14,6 +14,7 @@ export const projects: Project[] = [
     tags: ["Infrastructure", "LLM Inference"],
     blurb:
       "Deployed and tuned a 3-node Blackwell GB10 cluster with ConnectX-7 200GbE for VLM inference. Ran comparative tradeoff analysis across DP=3, TP, and PP configurations for 30–70B models, and debugged early-driver CUDA/NCCL issues on aarch64.",
+    image: "/assets/images/DGX-spark-cluster.png",
   },
   {
     title: "Advanced Generative Intelligent System (AGIS)",
@@ -21,6 +22,7 @@ export const projects: Project[] = [
     tags: ["Generative AI", "LLM Orchestration"],
     blurb:
       "[Problem] → [Approach] → [Result — one line each describing what this project solved, how, and the outcome.]",
+    image: "/assets/images/AGIS-MAIN.png",
   },
   {
     title: "Call Center Intelligence",
@@ -35,6 +37,7 @@ export const projects: Project[] = [
     tags: ["NLP", "Text-to-SQL"],
     blurb:
       "[Problem] → [Approach] → [Result — describe the natural-language-to-SQL system and its impact.]",
+    image: "/assets/images/Text-to-SQL.png",
   },
   {
     title: "LLM Distillation",
@@ -42,12 +45,14 @@ export const projects: Project[] = [
     tags: ["Model Optimization", "LLM"],
     blurb:
       "[Problem] → [Approach] → [Result — describe the distillation technique and efficiency gains.]",
+    image: "/assets/images/llm-distillation.png",
   },
   {
     title: "CORIMS",
     year: "2024",
     tags: ["Data Systems"],
     blurb: "[Problem] → [Approach] → [Result — describe what CORIMS does and who it serves.]",
+    image: "/assets/images/corism.jpg",
   },
   {
     title: "Traffic Anomaly Detection",
@@ -55,6 +60,7 @@ export const projects: Project[] = [
     tags: ["Computer Vision", "Anomaly Detection"],
     blurb:
       "[Problem] → [Approach] → [Result — describe the detection pipeline and deployment context.]",
+    image: "/assets/images/anomaly-detection.png",
   },
   {
     title: "Forest Fire Detection",
@@ -112,11 +118,11 @@ export const stackGroups: StackGroup[] = [
   {
     label: "Modeling & Research",
     items:
-      "PyTorch · Hugging Face Transformers · Qwen2.5-VL / Qwen3-VL · Deformable-DETR · all-MiniLM-l6-v2 · Qwen-AgentWorld · Fine-tuning, quantization (FP8/NVFP4), Distillation",
+      "PyTorch · Hugging Face Transformers · Qwen3-VL / Qwen3.6 · Deformable-DETR · all-MiniLM-l6-v2 · Qwen-AgentWorld · Fine-tuning, quantization (FP8/NVFP4), Distillation",
   },
   {
     label: "Serving & Orchestration",
-    items: "vLLM · FastAPI · Celery · Ray · Redis · OnlyOffice · Dify / Graphon workflow engines",
+    items: "vLLM · FastAPI · Celery · Redis · Dify / Graphon workflow engines",
   },
   {
     label: "Data & Retrieval",

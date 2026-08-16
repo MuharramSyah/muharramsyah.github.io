@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 import { useMemo, useState } from "react";
 import { FadeUp, StaggerGroup, StaggerItem } from "@/libs/motion";
 import { ProjectDialog } from "@/components/ui/ProjectDialog";
@@ -8,7 +9,6 @@ import { SectionHeading } from "@/components/ui/SectionHeading";
 import { colors } from "@/config";
 import { projects } from "../data";
 import { useIsMobile } from "../hooks/useIsMobile";
-import { Chip } from "@heroui/react";
 import type { Project } from "../types";
 
 const FILTERS = [
@@ -104,7 +104,7 @@ export function Work() {
                 color: colors.softBlack,
                 borderRadius: 10,
                 overflow: "hidden",
-                border: "1px solid rgba(38,38,38,0.12)",
+                // border: "1px solid rgba(38,38,38,0.12)",
                 background: colors.paleRose,
                 font: "inherit",
               }}
@@ -112,25 +112,37 @@ export function Work() {
               <div
                 style={{
                   width: "100%",
-                  aspectRatio: "16/9",
-                  background:
-                    "repeating-linear-gradient(135deg, rgba(38,38,38,0.06) 0px, rgba(38,38,38,0.06) 2px, transparent 2px, transparent 12px)",
-                  borderBottom: "1px solid rgba(38,38,38,0.1)",
+                  aspectRatio: "3 / 1",
+                  background: p.image
+                    ? "rgba(38,38,38,0.04)"
+                    : "repeating-linear-gradient(135deg, rgba(38,38,38,0.06) 0px, rgba(38,38,38,0.06) 2px, transparent 2px, transparent 12px)",
+                  // borderBottom: "1px solid rgba(38,38,38,0.1)",
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "center",
                   position: "relative",
+                  overflow: "hidden",
                 }}
               >
-                <span
-                  style={{
-                    fontFamily: "monospace",
-                    fontSize: 12,
-                    color: "rgba(38,38,38,0.5)",
-                  }}
-                >
-                  {p.title.toLowerCase().replace(/\s+/g, "-")}.png
-                </span>
+                {p.image ? (
+                  <Image
+                    src={p.image}
+                    alt={p.title}
+                    fill
+                    sizes="(max-width: 760px) 100vw, 340px"
+                    style={{ objectFit: "cover", border: "1px solid rgba(38,38,38,0.12)", borderRadius: 10 }}
+                  />
+                ) : (
+                  <span
+                    style={{
+                      fontFamily: "monospace",
+                      fontSize: 12,
+                      color: "rgba(38,38,38,0.5)",
+                    }}
+                  >
+                    {p.title.toLowerCase().replace(/\s+/g, "-")}.png
+                  </span>
+                )}
                 <span
                   style={{
                     position: "absolute",
@@ -143,6 +155,7 @@ export function Work() {
                     padding: "3px 8px",
                     borderRadius: 4,
                     border: "1px solid rgba(38,38,38,0.15)",
+                    zIndex: 1,
                   }}
                 >
                   {p.year}
@@ -150,7 +163,7 @@ export function Work() {
               </div>
               <div
                 style={{
-                  padding: "20px 22px 24px",
+                  padding: "18px 0px 24px",
                   display: "flex",
                   flexDirection: "column",
                   gap: 10,
@@ -158,19 +171,23 @@ export function Work() {
               >
                 <div style={{ display: "flex", gap: 8, flexWrap: "wrap" }}>
                   {p.tags.map((tag) => (
-                    <Chip
+                    <span
                       key={tag}
-                      variant="solid"
-                      color="primary"
-                      radius="full"
-                      size="sm"
-                      classNames={{
-                        base: "border-none",
-                        content: "text-xs font-semibold tracking-wide",
+                      style={{
+                        display: "inline-flex",
+                        alignItems: "center",
+                        fontSize: 12,
+                        fontWeight: 600,
+                        letterSpacing: "0.01em",
+                        padding: "4px 12px",
+                        borderRadius: 999,
+                        background: colors.maroon,
+                        color: colors.paleRose,
+                        lineHeight: 1.4,
                       }}
                     >
                       {tag}
-                    </Chip>
+                    </span>
                   ))}
                 </div>
                 <div
