@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<script src="./image-slot.js"></script>
+<style>
+  body { margin: 0; }
+  html { scroll-behavior: smooth; }
+  a { color: #1a1a1a; text-decoration: none; }
+  a:hover { color: #1a1a1a; }
+  ::selection { background: #1a1a1a; color: #f5f4f1; }
+  @keyframes photoIn { from { opacity: 0; transform: scale(0.92) translateY(12px); } to { opacity: 1; transform: scale(1) translateY(0); } }
+</style>
+</helmet>
+<div style="background: #f5f4f1; color: #1a1a1a; font-family: -apple-system,'Helvetica Neue',Helvetica,Arial,sans-serif; width: 100%; position: relative">
+
+
+
+  <sc-if value="{{ mobileMenuOpen }}">
+    <div style="display:flex; flex-direction:column; gap:0; background:#f5f4f1; borderBottom:1px solid rgba(26,26,26,0.1);">
+      <a href="#work" onClick="{{ closeMenu }}" style="padding:16px 24px; borderBottom:1px solid rgba(26,26,26,0.08);">Work</a>
+      <a href="#about" onClick="{{ closeMenu }}" style="padding:16px 24px; borderBottom:1px solid rgba(26,26,26,0.08);">About</a>
+      <a href="#experience" onClick="{{ closeMenu }}" style="padding:16px 24px; borderBottom:1px solid rgba(26,26,26,0.08);">Experience</a>
+      <a href="#skills" onClick="{{ closeMenu }}" style="padding:16px 24px; borderBottom:1px solid rgba(26,26,26,0.08);">Skills</a>
+      <a href="#contact" onClick="{{ closeMenu }}" style="padding:16px 24px;">Contact</a>
+    </div>
+  </sc-if>
+
+  <div id="top" style="max-width: 880px; margin: 0 auto; padding: {{ sectionPaddingX }}; font-size: 14px; display: block; margin-left: auto; margin-right: auto">
+
+
+
+    <section style="padding: {{ heroPaddingY }} 0; display: flex; align-items: center; gap: 56px; flex-wrap: wrap; position: relative; height: 828px">
+
+      <div style="display:flex; flex-direction:column; gap:20px; min-width:280px;">
+        <div style="font-size:14px; color:rgba(26,26,26,0.55); letter-spacing:0.02em;">Machine Learning Engineer · Jakarta, Indonesia</div>
+        <h1 style="margin: 0; font-size: 72px; line-height: 1.02; font-weight: 600; letter-spacing: -0.02em">Muharram Syah</h1>
+        <p style="max-width:520px; margin:0; font-size:18px; line-height:1.6; color:rgba(26,26,26,0.75);">I build machine learning systems — from generative AI platforms to computer vision pipelines — with a focus on reliability and real-world impact.</p>
+        <div style="display:flex; gap:16px; margin-top:8px; flex-wrap:wrap;">
+          <a href="mailto:muharramsyah19@gmail.com" style="font-size:14px; border-bottom:1px solid #1a1a1a; padding-bottom:2px;" style-hover="opacity:0.6;">muharramsyah19@gmail.com</a>
+          <span style="color:rgba(26,26,26,0.3);">·</span>
+          <a href="https://linkedin.com/in/muharram-syah" style="font-size:14px; border-bottom:1px solid #1a1a1a; padding-bottom:2px;" style-hover="opacity:0.6;">linkedin.com/in/muharram-syah</a>
+        </div><a href="#" title="Add your resume PDF link here" style="font-size: 14px; align-self: start; border: 1px solid block; padding: 1em; font-weight: 700" style-hover="opacity:0.6;">Download full résumé (PDF) ↓</a>
+      </div>
+    <div style="width: 297px; aspect-ratio: 4/5; background: repeating-linear-gradient(135deg, rgba(26,26,26,0.06) 0px, rgba(26,26,26,0.06) 2px, transparent 2px, transparent 12px); border: 1px solid rgba(26,26,26,0.15); display: flex; align-items: center; justify-content: center; border-radius: 4px">
+        <span style="font-family:monospace; font-size:12px; color:rgba(26,26,26,0.5);">portrait photo</span>
+      </div></section><section id="about" style="padding: {{ sectionPaddingY }} 0; border-top: 1px solid rgba(26,26,26,0.12); display: flex; flex-direction: column; gap: 32px; position: relative; width: 100%; opacity:{{ aboutOpacity }}; transform:{{ aboutTransform }}; transition:opacity 0.8s cubic-bezier(0.16,1,0.3,1), transform 0.8s cubic-bezier(0.16,1,0.3,1);">
+
+      <div style="position: relative">
+        <div style="font-size: 64px; text-transform: uppercase; letter-spacing: 0.08em; color: rgba(26,26,26,0.5); margin-bottom: 24px; font-weight: 600; text-align: left">About</div><div style="display:flex; gap:12px; margin-bottom:20px;">
+          <a href="mailto:muharramsyah19@gmail.com" title="Email" style="display:flex; align-items:center; justify-content:center; width:44px; height:44px; border-radius:50%; border:1px solid rgba(26,26,26,0.25); font-size:13px; font-weight:600;" style-hover="background:#1a1a1a; color:#f5f4f1; border-color:#1a1a1a;">@</a>
+          <a href="https://linkedin.com/in/muharram-syah" title="LinkedIn" style="display:flex; align-items:center; justify-content:center; width:44px; height:44px; border-radius:50%; border:1px solid rgba(26,26,26,0.25); font-size:13px; font-weight:600;" style-hover="background:#1a1a1a; color:#f5f4f1; border-color:#1a1a1a;">in</a>
+          <a href="https://github.com/muharram-syah" title="GitHub" style="display:flex; align-items:center; justify-content:center; width:44px; height:44px; border-radius:50%; border:1px solid rgba(26,26,26,0.25); font-size:13px; font-weight:600;" style-hover="background:#1a1a1a; color:#f5f4f1; border-color:#1a1a1a;">GH</a>
+        </div>
+        <div style="font-size: 17px; line-height: 1.75; color: rgba(26,26,26,0.8); margin: 0; max-width: 883px"><p>I'm an AI/ML Engineer with over six years of experience across Computer Vision, NLP, and Generative AI. I started as an ML intern, then spent nearly four years at a leading geospatial technology company, advancing from Data Scientist to Engineering Lead, where I built production systems for traffic anomaly detection, disaster monitoring, and crop grading. I later optimized real-time inference infrastructure at a major oil &amp; gas operator, cutting cloud costs by over 80%.</p><p>Today, as <strong>Lead AI Engineer at AppFuxion Consulting</strong>, I architect vision-language model pipelines and document intelligence systems that power enterprise AI platforms — from fine-tuning layout detection models to serving 30B+ parameter <b>VLMs</b> on GPU clusters.</p><p>I care about ML systems that actually ship: models that survive production traffic, pipelines that don't silently degrade, and infrastructure that a small team can operate confidently.</p></div>
+      </div>
+    </section>
+
+    <section id="stack" style="padding:{{ sectionPaddingY }} 0; border-top:1px solid rgba(26,26,26,0.12);">
+      <div style="font-size: 64px; text-transform: uppercase; letter-spacing: 0.08em; color: rgba(26,26,26,0.5); margin-bottom: 32px">What I work with</div>
+      <div style="display:flex; flex-direction:column; gap:24px;">
+        <sc-for list="{{ stackGroups }}" as="s" hint-placeholder-count="4">
+          <div style="padding:20px 0; border-bottom:1px solid rgba(26,26,26,0.1);">
+            <div style="font-size:16px; font-weight:600; margin-bottom:8px;">{{ s.label }}</div>
+            <div style="font-size:14px; line-height:1.7; color:rgba(26,26,26,0.7); max-width:720px;">{{ s.items }}</div>
+          </div>
+        </sc-for>
+      </div>
+    </section><section id="work" style="padding:{{ sectionPaddingY }} 0; border-top:1px solid rgba(26,26,26,0.12); opacity:{{ workOpacity }}; transform:{{ workTransform }}; transition:opacity 0.8s cubic-bezier(0.16,1,0.3,1), transform 0.8s cubic-bezier(0.16,1,0.3,1);">
+      <div style="font-size: 64px; text-transform: uppercase; letter-spacing: 0.08em; color: rgba(26,26,26,0.5); margin-bottom: 32px">Selected Work</div>
+      <sc-for list="{{ projects }}" as="p" hint-placeholder-count="7">
+        <a href="#" style="display:block; text-decoration:none; color:#1a1a1a; padding:28px 16px; margin:0 -16px; border-bottom:1px solid rgba(26,26,26,0.12); border-radius:4px;" style-hover="background:rgba(26,26,26,0.04);">
+          <div style="display:flex; justify-content:space-between; align-items:baseline; gap:16px; flex-wrap:wrap;">
+            <div style="font-size:{{ projectTitleSize }}; font-weight:600; letter-spacing:-0.01em;">{{ p.title }}</div>
+            <div style="font-size:14px; color:rgba(26,26,26,0.5); white-space:nowrap;">{{ p.year }}</div>
+          </div>
+          <div style="display:flex; gap:8px; margin-top:10px; flex-wrap:wrap;">
+            <sc-for list="{{ p.tags }}" as="tag" hint-placeholder-count="2">
+              <span style="font-size:12px; padding:4px 10px; border:1px solid rgba(26,26,26,0.2); border-radius:999px; color:rgba(26,26,26,0.65);">{{ tag }}</span>
+            </sc-for>
+          </div>
+          <p style="margin:14px 0 0; font-size:15px; line-height:1.6; color:rgba(26,26,26,0.7); max-width:640px;">{{ p.blurb }}</p>
+        </a>
+      </sc-for>
+    </section>
+
+
+
+    <section id="experience" style="padding:{{ sectionPaddingY }} 0; border-top:1px solid rgba(26,26,26,0.12); opacity:{{ experienceOpacity }}; transform:{{ experienceTransform }}; transition:opacity 0.8s cubic-bezier(0.16,1,0.3,1), transform 0.8s cubic-bezier(0.16,1,0.3,1);">
+      <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 32px; flex-wrap: wrap; gap: 12px; flex-direction: row">
+      <div style="font-size: 64px; text-transform: uppercase; letter-spacing: 0.08em; color: rgba(26,26,26,0.5); text-align: left">Experience</div></div>
+      <sc-for list="{{ timeline }}" as="t" hint-placeholder-count="5">
+        <div style="display:grid; grid-template-columns:{{ timelineColumns }}; gap:16px; padding:20px 0; border-bottom:1px solid rgba(26,26,26,0.1);">
+          <div style="font-size:14px; color:rgba(26,26,26,0.5);">{{ t.period }}</div>
+          <div>
+            <div style="font-size:16px; font-weight:600;">{{ t.role }}</div>
+            <div style="font-size:14px; color:rgba(26,26,26,0.6); margin-top:2px;">{{ t.company }} · {{ t.location }}</div>
+            <p style="font-size:14px; line-height:1.6; color:rgba(26,26,26,0.7); margin:8px 0 0; max-width:640px;">{{ t.summary }}</p>
+          </div>
+        </div>
+      </sc-for>
+    </section>
+
+    <section id="skills" style="padding:{{ sectionPaddingY }} 0; border-top:1px solid rgba(26,26,26,0.12); opacity:{{ skillsOpacity }}; transform:{{ skillsTransform }}; transition:opacity 0.8s cubic-bezier(0.16,1,0.3,1), transform 0.8s cubic-bezier(0.16,1,0.3,1);">
+      <div style="font-size: 64px; text-transform: uppercase; letter-spacing: 0.08em; color: rgba(26,26,26,0.5); margin-bottom: 32px">Skills &amp; Tools</div>
+      <div style="display:grid; grid-template-columns:{{ skillsColumns }}; gap:32px;">
+        <sc-for list="{{ skillGroups }}" as="g" hint-placeholder-count="4">
+          <div>
+            <div style="font-size:14px; font-weight:600; margin-bottom:12px;">{{ g.label }}</div>
+            <div style="display:flex; flex-direction:column; gap:8px;">
+              <sc-for list="{{ g.items }}" as="item" hint-placeholder-count="4">
+                <div style="font-size:14px; color:rgba(26,26,26,0.7);">{{ item }}</div>
+              </sc-for>
+            </div>
+          </div>
+        </sc-for>
+      </div>
+    </section>
+
+    <section id="contact" style="padding:{{ sectionPaddingY }} 0; border-top:1px solid rgba(26,26,26,0.12); display:grid; grid-template-columns:{{ aboutColumns }}; gap:48px; opacity:{{ contactOpacity }}; transform:{{ contactTransform }}; transition:opacity 0.8s cubic-bezier(0.16,1,0.3,1), transform 0.8s cubic-bezier(0.16,1,0.3,1);">
+      <div>
+        <div style="font-size: 64px; text-transform: uppercase; letter-spacing: 0.08em; color: rgba(26,26,26,0.5); margin-bottom: 24px">Contact</div>
+        <p style="font-size:17px; line-height:1.6; color:rgba(26,26,26,0.8); margin:0 0 24px;">Open to new opportunities in machine learning and AI engineering.</p>
+
+        <div style="display:flex; flex-direction:column; gap:10px; font-size:15px;">
+          <a href="mailto:muharramsyah19@gmail.com" style-hover="opacity:0.6;">muharramsyah19@gmail.com</a>
+          <a href="tel:+6281361984557" style-hover="opacity:0.6;">+62 813 6198 4557</a>
+
+
+          <span style="color:rgba(26,26,26,0.6);">Jakarta, Indonesia</span>
+        </div>
+      </div>
+      <form style="display:flex; flex-direction:column; gap:14px;">
+        <input type="text" placeholder="Name" style="font-family:inherit; font-size:15px; padding:12px 0; border:none; border-bottom:1px solid rgba(26,26,26,0.25); background:transparent; outline:none; color:#1a1a1a;">
+        <input type="email" placeholder="Email" style="font-family:inherit; font-size:15px; padding:12px 0; border:none; border-bottom:1px solid rgba(26,26,26,0.25); background:transparent; outline:none; color:#1a1a1a;">
+        <textarea placeholder="Message" rows="4" style="font-family:inherit; font-size:15px; padding:12px 0; border:none; border-bottom:1px solid rgba(26,26,26,0.25); background:transparent; outline:none; resize:none; color:#1a1a1a;"></textarea>
+        <button type="submit" style="align-self:flex-start; margin-top:8px; font-size:14px; border:1px solid #1a1a1a; background:#1a1a1a; color:#f5f4f1; padding:12px 24px; border-radius:2px; cursor:pointer;" style-hover="background:#f5f4f1; color:#1a1a1a;">Send message</button>
+      </form>
+    </section>
+
+    <footer style="padding:32px 0 48px; display:flex; justify-content:space-between; font-size:13px; color:rgba(26,26,26,0.5); flex-wrap:wrap; gap:8px;">
+      <span>© {{ year }} Muharram Syah</span>
+      <span>Built with care in Jakarta</span>
+    </footer>
+
+  </div>
+<div style="box-sizing: border-box; position: absolute; left: 109px; top: 546px; width: 116px; height: 32px"></div><div style="position: fixed; z-index: 50; background: #f5f4f1; display: grid; align-items: center; padding: {{ navPadding }}; left: 0px; font-family: -apple-system, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; height: 100%; text-align: left; top: 0px; width: 180px; box-sizing: border-box">
+
+    <div style="display: inline-block; gap: 30px; font-size: 14px; align-self: center; align-items: center; position: static">
+      <a href="#about" style="opacity: 0.7; display: block; margin-top: 30px; margin-bottom: 30px; font-weight:{{ aboutNavWeight }}; margin-left:{{ aboutNavMargin }}; transition:font-weight 0.2s, margin-left 0.2s;" style-hover="opacity:1">About</a><a href="#work" style="opacity: 0.7; display: block; margin-top: 30px; margin-bottom: 30px; font-weight:{{ workNavWeight }}; margin-left:{{ workNavMargin }}; transition:font-weight 0.2s, margin-left 0.2s;" style-hover="opacity:1">Work</a>
+
+      <a href="#experience" style="opacity: 0.7; display: block; margin-top: 30px; margin-bottom: 30px; font-weight:{{ experienceNavWeight }}; margin-left:{{ experienceNavMargin }}; transition:font-weight 0.2s, margin-left 0.2s;" style-hover="opacity:1">Experience</a>
+      <a href="#skills" style="opacity: 0.7; display: block; margin-top: 30px; margin-bottom: 30px; font-weight:{{ skillsNavWeight }}; margin-left:{{ skillsNavMargin }}; transition:font-weight 0.2s, margin-left 0.2s;" style-hover="opacity:1">Skills</a>
+      <a href="#contact" style="opacity: 0.7; display: block; margin-top: 30px; margin-bottom: 30px; font-weight:{{ contactNavWeight }}; margin-left:{{ contactNavMargin }}; transition:font-weight 0.2s, margin-left 0.2s;" style-hover="opacity:1">Contact</a>
+
+    </div>
+    <button onClick="{{ toggleMenu }}" style="display:{{ hamburgerDisplay }}; background:none; border:none; font-size:14px; cursor:pointer; color:#1a1a1a; padding:8px;">{{ menuLabel }}</button>
+  </div></div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;navActiveBold&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Navigation&quot;},&quot;navActiveIndent&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:15,&quot;min&quot;:0,&quot;max&quot;:20,&quot;step&quot;:1,&quot;unit&quot;:&quot;px&quot;,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Navigation&quot;}}">
+class Component extends DCLogic {
+  state = { mobileMenuOpen: false, isMobile: false, revealed: {}, activeSection: '' };
+
+  componentDidMount() {
+    this.checkWidth();
+    this._onResize = () => this.checkWidth();
+    window.addEventListener('resize', this._onResize);
+    this._io = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const id = entry.target.id;
+          this.setState(s => ({ revealed: { ...s.revealed, [id]: true } }));
+          this._io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
+    ['about', 'work', 'experience', 'skills', 'contact'].forEach(id => {
+      const el = document.getElementById(id);
+      if (el) this._io.observe(el);
+    });
+    this._activeIO = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) this.setState({ activeSection: entry.target.id });
+      });
+    }, { rootMargin: '-45% 0px -45% 0px', threshold: 0 });
+    ['about', 'work', 'experience', 'skills', 'contact'].forEach(id => {
+      const el = document.getElementById(id);
+      if (el) this._activeIO.observe(el);
+    });
+  }
+  componentWillUnmount() {
+    window.removeEventListener('resize', this._onResize);
+    if (this._io) this._io.disconnect();
+    if (this._activeIO) this._activeIO.disconnect();
+  }
+  checkWidth() {
+    const isMobile = window.innerWidth < 760;
+    if (isMobile !== this.state.isMobile) this.setState({ isMobile });
+  }
+
+  renderVals() {
+    const isMobile = this.state.isMobile;
+    const projects = [
+      { title: '3-Node DGX Spark GB10 Cluster', year: '2026', tags: ['Infrastructure', 'LLM Inference'], blurb: 'Deployed and tuned a 3-node Blackwell GB10 cluster with ConnectX-7 200GbE for VLM inference. Ran comparative tradeoff analysis across DP=3, TP, and PP configurations for 30–70B models, and debugged early-driver CUDA/NCCL issues on aarch64.' },
+      { title: 'Advanced Generative Intelligent System (AGIS)', year: '2025', tags: ['Generative AI', 'LLM Orchestration'], blurb: '[Problem] → [Approach] → [Result — one line each describing what this project solved, how, and the outcome.]' },
+      { title: 'Call Center Intelligence', year: '2025', tags: ['NLP', 'Speech Analytics'], blurb: '[Problem] → [Approach] → [Result — describe the call center use case, the ML approach, and measurable outcome.]' },
+      { title: 'SQL Intelligence', year: '2025', tags: ['NLP', 'Text-to-SQL'], blurb: '[Problem] → [Approach] → [Result — describe the natural-language-to-SQL system and its impact.]' },
+      { title: 'LLM Distillation', year: '2025', tags: ['Model Optimization', 'LLM'], blurb: '[Problem] → [Approach] → [Result — describe the distillation technique and efficiency gains.]' },
+      { title: 'CORIMS', year: '2024', tags: ['Data Systems'], blurb: '[Problem] → [Approach] → [Result — describe what CORIMS does and who it serves.]' },
+      { title: 'Traffic Anomaly Detection', year: '2022', tags: ['Computer Vision', 'Anomaly Detection'], blurb: '[Problem] → [Approach] → [Result — describe the detection pipeline and deployment context.]' },
+      { title: 'Forest Fire Detection', year: '2021', tags: ['Computer Vision', 'Early Warning'], blurb: '[Problem] → [Approach] → [Result — describe the detection system and its real-world use.]' },
+    ];
+    const timeline = [
+      { period: 'Sep 2025 – Present', role: 'Senior Machine Learning Engineer', company: 'AppFuxion Consulting Indonesia', location: 'Jakarta, Indonesia', summary: "Developed a high-performance Document Extraction engine powered by Vision Language Models (VLM) to transform unstructured visual data into a structured Knowledge Base for the AGIS Platform." },
+      { period: 'Aug 2024 – Jan 2025', role: 'Machine Learning Engineer', company: 'Petronas Digital Sdn Bhd', location: 'Kuala Lumpur, Malaysia', summary: 'Spearheaded the optimization of AWS SageMaker systems for real-time inference, achieving an 81.6% reduction in operational and cloud costs.' },
+      { period: 'Feb 2023 – May 2024', role: 'Engineering Lead', company: 'Esri Indonesia', location: 'Jakarta, Indonesia', summary: 'Directed a team of 6 engineers, resolving technical challenges and improving team efficiency; architected microservices integrated with secure, high-performance internal API gateways.' },
+      { period: 'May 2020 – Feb 2023', role: 'Data Scientist', company: 'Esri Indonesia', location: 'Jakarta, Indonesia', summary: 'Built a real-time traffic anomaly detection system using YOLOv4 and NVIDIA DeepStream, enabling faster incident response and improved public safety outcomes.' },
+      { period: 'Mar 2018 – Mar 2019', role: 'AI Scientist (Intern)', company: 'Telkom Indonesia', location: 'Jakarta, Indonesia', summary: 'Deployed object detection with YOLO across 16 CCTV systems in Rest Area Management to improve traffic flow on highways in Indonesia.' },
+    ];
+    const stackGroups = [
+      { label: 'Modeling & Research', items: 'PyTorch · Hugging Face Transformers · Qwen2.5-VL / Qwen3-VL · Deformable-DETR · all-MiniLM-l6-v2 · Qwen-AgentWorld · Fine-tuning, quantization (FP8/NVFP4), Distillation' },
+      { label: 'Serving & Orchestration', items: 'vLLM · FastAPI · Celery · Ray · Redis · OnlyOffice · Dify / Graphon workflow engines' },
+      { label: 'Data & Retrieval', items: 'PostgreSQL · ChromaDB · Memgraph · MinIO / RustFS · Kafka · PyMuPDF' },
+      { label: 'Infrastructure', items: 'NVIDIA GB10 / DGX Spark (Blackwell, aarch64) · Multi-GPU H200 / A40 · Docker / Podman · CDI GPU passthrough · ConnectX-7 200GbE · NCCL / distributed inference' },
+    ];
+    const skillGroups = [
+      { label: 'Machine Learning', items: ['Deep Learning', 'LLMs & Generative AI', 'Model Distillation', 'MLOps'] },
+      { label: 'NLP & Data', items: ['NLP', 'Text-to-SQL', 'Data Pipelines', 'SQL'] },
+      { label: 'Computer Vision', items: ['Object Detection', 'Anomaly Detection', 'Video Analytics'] },
+      { label: 'Tools', items: ['Python', 'PyTorch / TensorFlow', 'Cloud Deployment', 'Docker'] },
+    ];
+    const rev = this.state.revealed;
+    const sectionIds = ['about', 'work', 'experience', 'skills', 'contact'];
+    const reveal = {};
+    sectionIds.forEach(id => {
+      reveal[id + 'Opacity'] = rev[id] ? 1 : 0;
+      reveal[id + 'Transform'] = rev[id] ? 'translateY(0px)' : 'translateY(32px)';
+    });
+    const navActiveBold = this.props.navActiveBold ?? true;
+    const navActiveIndent = this.props.navActiveIndent ?? 6;
+    sectionIds.forEach(id => {
+      const isActive = this.state.activeSection === id;
+      reveal[id + 'NavWeight'] = isActive && navActiveBold ? 700 : 400;
+      reveal[id + 'NavMargin'] = isActive ? navActiveIndent + 'px' : '0px';
+    });
+    return {
+      ...reveal,
+      year: new Date().getFullYear(),
+      projects, timeline, skillGroups, stackGroups,
+      mobileMenuOpen: this.state.mobileMenuOpen,
+      toggleMenu: () => this.setState(s => ({ mobileMenuOpen: !s.mobileMenuOpen })),
+      closeMenu: () => this.setState({ mobileMenuOpen: false }),
+      menuLabel: this.state.mobileMenuOpen ? 'Close' : 'Menu',
+      navLinksDisplay: isMobile ? 'none' : 'flex',
+      hamburgerDisplay: isMobile ? 'block' : 'none',
+      navPadding: isMobile ? '18px 24px' : '20px 48px',
+      sectionPaddingX: isMobile ? '0 24px' : '0 32px',
+      heroPaddingY: isMobile ? '56px' : '96px',
+      heroFontSize: isMobile ? '56px' : '128px',
+      profilePhotoSize: isMobile ? '200px' : '320px',
+      sectionPaddingY: isMobile ? '56px' : '80px',
+      projectTitleSize: isMobile ? '20px' : '24px',
+      aboutColumns: isMobile ? '1fr' : '1.4fr 1fr',
+      timelineColumns: isMobile ? '80px 1fr' : '120px 1fr',
+      skillsColumns: isMobile ? '1fr 1fr' : 'repeat(4, 1fr)',
+    };
+  }
+}
+</script>
+</body>
+</html>
