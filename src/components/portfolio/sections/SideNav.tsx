@@ -167,6 +167,7 @@ export function SideNav() {
         variant="bordered"
         radius="full"
         isIconOnly
+        color="primary"
         style={{
           position: "fixed",
           zIndex: 51,

@@ -85,17 +85,23 @@ export function ProjectDetail({ project }: Props) {
         >
           About this project
         </div>
-        <p
-          style={{
-            margin: 0,
-            fontSize: 17,
-            lineHeight: 1.75,
-            color: "rgba(38,38,38,0.85)",
-            maxWidth: 720,
-          }}
-        >
-          {project.overview ?? project.blurb}
-        </p>
+        <div style={{ maxWidth: 720 }}>
+          {(project.overview ?? project.blurb)
+            .split(/\n{2,}/)
+            .map((para, i) => (
+              <p
+                key={i}
+                style={{
+                  margin: i === 0 ? 0 : "16px 0 0",
+                  fontSize: 17,
+                  lineHeight: 1.75,
+                  color: "rgba(38,38,38,0.85)",
+                }}
+              >
+                {para}
+              </p>
+            ))}
+        </div>
       </div>
 
       {project.stack && project.stack.length > 0 && (

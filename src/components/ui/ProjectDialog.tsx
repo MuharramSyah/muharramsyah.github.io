@@ -54,7 +54,7 @@ export function ProjectDialog({ project, onClose }: Props) {
             type="button"
             onClick={onClose}
             aria-label="Close"
-            whileHover={{ scale: 1.05, backgroundColor: colors.softBlack, color: colors.paleRose }}
+            whileHover={{ scale: 1.05, backgroundColor: colors.maroon, color: colors.paleRose }}
             transition={{ duration: 0.2 }}
             style={{
               position: "fixed",
@@ -66,13 +66,14 @@ export function ProjectDialog({ project, onClose }: Props) {
               borderRadius: "50%",
               border: `1px solid rgba(38,38,38,0.2)`,
               background: colors.paleRose,
-              color: colors.softBlack,
+              color: colors.maroon,
               fontSize: 22,
               cursor: "pointer",
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
               padding: 0,
+              paddingBottom: 3,
               lineHeight: 1,
               boxShadow: "0 4px 12px rgba(38,38,38,0.08)",
             }}
