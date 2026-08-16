@@ -1,17 +1,15 @@
-"use client";
-
-import { use } from "react";
-import { useRouter } from "next/navigation";
-import { ProjectDialog } from "@/components/ui/ProjectDialog";
-import { findProjectBySlug } from "@/components/portfolio/data";
+import { projects, projectSlug } from "@/components/portfolio/data";
+import { InterceptedProjectClient } from "./client";
 
 type Props = {
   params: Promise<{ slug: string }>;
 };
 
-export default function InterceptedProjectPage({ params }: Props) {
-  const { slug } = use(params);
-  const router = useRouter();
-  const project = findProjectBySlug(slug);
-  return <ProjectDialog project={project} onClose={() => router.back()} />;
+export function generateStaticParams() {
+  return projects.map((p) => ({ slug: projectSlug(p.title) }));
+}
+
+export default async function InterceptedProjectPage({ params }: Props) {
+  const { slug } = await params;
+  return <InterceptedProjectClient slug={slug} />;
 }
