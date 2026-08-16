@@ -1,15 +1,14 @@
 "use client";
 
 import { motion } from "framer-motion";
-import Link from "next/link";
 import { useMemo, useState } from "react";
 import { FadeUp, StaggerGroup, StaggerItem } from "@/libs/motion";
+import { ProjectDialog } from "@/components/ui/ProjectDialog";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { colors } from "@/config";
-import { projects, projectSlug } from "../data";
+import { projects } from "../data";
 import { useIsMobile } from "../hooks/useIsMobile";
-
-const MotionLink = motion.create(Link);
+import type { Project } from "../types";
 
 const FILTERS = [
   "All Projects",
@@ -25,6 +24,7 @@ export function Work() {
   const sectionPaddingY = isMobile ? "56px" : "80px";
   const workGridColumns = isMobile ? "1fr" : "repeat(2, 1fr)";
   const [activeFilter, setActiveFilter] = useState<Filter>("All Projects");
+  const [activeProject, setActiveProject] = useState<Project | null>(null);
 
   const filteredProjects = useMemo(() => {
     if (activeFilter === "All Projects") return projects;
@@ -87,20 +87,25 @@ export function Work() {
       >
         {filteredProjects.map((p) => (
           <StaggerItem key={p.title}>
-            <MotionLink
-              href={`/work/${projectSlug(p.title)}`}
-              scroll={false}
+            <motion.button
+              type="button"
+              onClick={() => setActiveProject(p)}
               whileHover={{ y: -4 }}
               transition={{ type: "spring", stiffness: 260, damping: 22 }}
               style={{
                 display: "flex",
                 flexDirection: "column",
+                textAlign: "left",
+                width: "100%",
+                padding: 0,
+                cursor: "pointer",
                 textDecoration: "none",
                 color: colors.softBlack,
                 borderRadius: 10,
                 overflow: "hidden",
                 border: "1px solid rgba(38,38,38,0.12)",
                 background: colors.paleRose,
+                font: "inherit",
               }}
             >
               <div
@@ -186,10 +191,12 @@ export function Work() {
                   {p.blurb}
                 </p>
               </div>
-            </MotionLink>
+            </motion.button>
           </StaggerItem>
         ))}
       </StaggerGroup>
+
+      <ProjectDialog project={activeProject} onClose={() => setActiveProject(null)} />
     </section>
   );
 }

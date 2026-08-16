@@ -8,19 +8,10 @@ export const metadata: Metadata = {
     "AI/ML Engineer building generative AI platforms, computer vision pipelines, and production ML infrastructure.",
 };
 
-export default function RootLayout({
-  children,
-  modal,
-}: {
-  children: React.ReactNode;
-  modal: React.ReactNode;
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body>
-        {children}
-        {modal}
-      </body>
+      <body>{children}</body>
     </html>
   );
 }
