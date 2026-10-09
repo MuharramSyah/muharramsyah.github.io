@@ -10,13 +10,15 @@ export function projectSlug(title: string) {
 export const projects: Project[] = [
   {
     title: 'Hermes Virtual Office',
-    description:
-      'A live 3D mission-control office for a crew of Hermes AI agents. Each agent is a character whose status follows the Kanban board in real time; clickable boards, TVs, and server racks open review, dashboard, and config panels with guarded actions. Agents can drive the office themselves over MCP.',
+    blurb:
+      "A live 3D mission-control office for a crew of Hermes AI agents. Each agent is a character whose status follows the Kanban board in real time; clickable boards, TVs, and server racks open review, dashboard, and config panels with guarded actions. Agents can drive the office themselves over MCP.",
     tags: ['Next.js', 'Three.js', 'TypeScript', 'MCP'],
     image: '/assets/images/hermes-office.jpg',
-    link: 'http://43.173.6.214:3000/#/office',
+    links: {
+      demo: "http://43.173.6.214:3000/#/office",
+    },
     year: '2026',
-    categories: ['AI / ML', 'Full Stack', 'Web App'],
+    stack: ['AI / ML', 'Full Stack', 'Web App'],
   },
   {
     title: "3-Node DGX Spark GB10 Cluster",
